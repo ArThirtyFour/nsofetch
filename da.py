@@ -1,5 +1,6 @@
-from info import *
 from pystyle import Colors , Colorate , Add
+from de import get_desktop_environment_and_version
+from info import *
 logo = f'''
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣦⡀⠀⠀⣀⣠⣶⣾⣿⣿⣿⣿⣷⣦⣤⣀⡀⢠⣾⣿⣿⣷⣦⣄⣀⣀⣀⣠⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⣤⣶⣿⡿⣿⣿⣿⣿⣿⣿⣿⣿⣧⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣾⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠀⠀⠀⠀⠀
@@ -35,20 +36,20 @@ logo = f'''
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡿⢻⠞⣻⣿⣿⣿⢛⠛⠿⣿⣿⣿⣿⣿⣿⢫⣿⣿⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀    ⠘⣿⣦⣾⣿⣿⣿⣿⡐⠀⠀⣿⣿⡿⣿⣏⡏⢉⣽⣿⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 '''
-
+colored_logo = Colorate.Vertical(Colors.blue_to_purple, logo, 1)
 info = f'''
-    {get_info_name_pc()}
-    ─════════════════════════════════════════════════════─
-    Дистрибутив    ▶ {get_distro()}
-    Ядро           ▶ {get_kernel()}
-    Граф.Окружение ▶ {get_de()}
-    Оболочка       ▶ {get_shell()}
-    GTK Тема       ▶ {get_gtk_theme()}
-    Расширение     ▶ {get_resolution()}
-    Память         ▶ {get_memory()}
-    Процессор      ▶ {get_cpu()}
-    ─════════════════════════════════════════════════════─
+{get_info_name_pc()}
+─════════════════════════════════════════════════════─
+Дистрибутив    ▶ {get_distro()}
+Ядро           ▶ {get_kernel()}
+Оболочка       ▶ {get_shell()}
+GTK Тема       ▶ {get_gtk_theme()}
+Расширение     ▶ {get_resolution()}
+Память         ▶ {get_memory()}
+Процессор      ▶ {get_cpu()}
+Видеокарта     ▶ {get_video_card()}
+Граф.Окружение ▶ {get_desktop_environment_and_version()}
+─════════════════════════════════════════════════════─
 '''
-full_info = Add.Add(logo, info)
 
-print(Colorate.Vertical(Colors.blue_to_purple,full_info,1))
+print(Add.Add(colored_logo, info, 4))

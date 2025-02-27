@@ -1,9 +1,16 @@
 import platform
 import subprocess
-
 import cpuinfo
 import psutil
 import distro
+import GPUtil
+
+def get_video_card():
+    gpus = GPUtil.getGPUs()
+    if gpus:
+        for gpu in gpus:
+            return gpu.name
+
 
 def get_distro():
     return distro.name()
